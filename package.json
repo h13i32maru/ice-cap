@@ -1,0 +1,35 @@
+{
+  "name": "ice-cap",
+  "version": "0.0.0",
+  "description": "",
+  "author": "h13i32maru",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h13i32maru/ice-cap"
+  },
+  "scripts": {
+    "init": "bash ./script/init.sh",
+    "build": "bash ./script/build.sh",
+    "build_test": "bash ./script/build_test.sh",
+    "test": "bash ./script/test.sh",
+    "jsdoc": "bash ./script/build_jsdoc.sh",
+    "start": "bash ./script/server.sh"
+  },
+  "author": "h13i32maru",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": ""
+  },
+  "devDependencies" : {
+    "babel": "",
+    "mocha": "",
+    "fs-extra": "",
+    "power-assert": "",
+    "espower-loader": "",
+    "istanbul": ""
+  },
+  "keywords": ["html", "template"],
+  "files": ["out/", "README.md"],
+  "main": "out/index.js"
+}
