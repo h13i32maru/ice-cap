@@ -191,7 +191,12 @@ export default class IceCap {
         let ice = new IceCap(parent);
         callback(j, values[j], ice);
       }
-      node.parent().append(results);
+
+      if (node.parent().length) {
+        node.parent().append(results);
+      } else {
+        this._$root.append(results);
+      }
       node.remove();
     }
 

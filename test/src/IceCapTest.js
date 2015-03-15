@@ -233,6 +233,15 @@ describe('IceCap:', ()=>{
       assert.equal(ice.html, '<ul><li data-ice="name"><span>Alice</span></li>\n<li data-ice="name"><span>Bob</span></li>\n<li data-ice="name"><span>Carol</span></li>\n</ul>');
     });
 
+    it('process loop with multi root template.', ()=>{
+      var ice = new IceCap('<div data-ice="title"></div><span data-ice="name"></span>');
+      ice.text('title', 'Users');
+      ice.loop('name', ['Alice', 'Bob', 'Carol'], (i, name, ice)=>{
+        ice.text('name', name);
+      });
+      assert.equal(ice.html, '<div data-ice="title">Users</div><span data-ice="name">Alice</span>\n<span data-ice="name">Bob</span>\n<span data-ice="name">Carol</span>\n');
+    });
+
     it('process loop with empty values.', ()=>{
       var ice = new IceCap('<ul><li data-ice="name"></li></ul>');
       ice.loop('name', [], IceCap.CALLBACK_TEXT);
