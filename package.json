@@ -16,20 +16,25 @@
     "jsdoc": "bash ./script/build_jsdoc.sh",
     "start": "bash ./script/server.sh"
   },
-  "author": "h13i32maru",
-  "license": "MIT",
   "dependencies": {
     "cheerio": ""
   },
-  "devDependencies" : {
+  "devDependencies": {
     "babel": "",
     "mocha": "",
     "fs-extra": "",
     "power-assert": "",
     "espower-loader": "",
-    "istanbul": ""
+    "istanbul": "",
+    "coveralls": ""
   },
-  "keywords": ["html", "template"],
-  "files": ["out/", "README.md"],
+  "keywords": [
+    "html",
+    "template"
+  ],
+  "files": [
+    "out/",
+    "README.md"
+  ],
   "main": "out/index.js"
 }
