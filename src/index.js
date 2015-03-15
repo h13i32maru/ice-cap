@@ -198,6 +198,32 @@ export default class IceCap {
     return this;
   }
 
+  into(id, value, callback) {
+    let nodes = this._nodes(id);
+
+    if (value === '' || value === null || value === undefined) {
+      nodes.remove();
+      return;
+    }
+    else if (Array.isArray(value)) {
+      if (value.length === 0) {
+        nodes.remove();
+        return;
+      }
+    }
+
+    if (typeof callback !== 'function') {
+      throw new Error(`callback must be function. callback = "${callback}"`);
+    }
+
+    for (let node of nodes.iterator) {
+      let ice = new IceCap(node);
+      callback(value, ice);
+    }
+
+    return this;
+  }
+
   drop(id, isDrop = true) {
     if (!isDrop) return;
 

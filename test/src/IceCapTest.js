@@ -227,7 +227,7 @@ describe('IceCap:', ()=>{
       assert.equal(ice.html, '<ul><li data-ice="name">Alice</li>\n<li data-ice="name">Bob</li>\n<li data-ice="name">Carol</li>\n</ul>');
     });
 
-    it('process loop with html callback.', ()=>{
+    it('process loop with load callback.', ()=>{
       var ice = new IceCap('<ul><li data-ice="name"></li></ul>');
       ice.loop('name', ['<span>Alice</span>', '<span>Bob</span>', '<span>Carol</span>'], IceCap.CALLBACK_LOAD);
       assert.equal(ice.html, '<ul><li data-ice="name"><span>Alice</span></li>\n<li data-ice="name"><span>Bob</span></li>\n<li data-ice="name"><span>Carol</span></li>\n</ul>');
@@ -273,6 +273,60 @@ describe('IceCap:', ()=>{
       var ice = new IceCap('<ul><li data-ice="name"></li></ul>');
       try {
         ice.loop('name', ['Alice', 'Bob', 'Carol'], 'invalid mode');
+        assert(false, 'unreachable');
+      } catch(e) {
+        assert(e instanceof Error);
+      }
+    });
+  });
+
+  describe('#into', ()=>{
+    it('process into.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      ice.into('exampleWrap', 'this is example', (example, ice)=>{
+        ice.text('example', example);
+      });
+      assert.equal(ice.html, '<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example">this is example</div></div>');
+    });
+
+    it('drops element with empty string value.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      ice.into('exampleWrap', '', ()=>{});
+      assert.equal(ice.html, '');
+    });
+
+    it('drops element with null value.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      ice.into('exampleWrap', null, ()=>{});
+      assert.equal(ice.html, '');
+    });
+
+    it('drops element with undefined value.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      ice.into('exampleWrap', undefined, ()=>{});
+      assert.equal(ice.html, '');
+    });
+
+    it('drops element with empty array value.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      ice.into('exampleWrap', [], ()=>{});
+      assert.equal(ice.html, '');
+    });
+
+    it('throws error if id is not specified.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      try {
+        ice.into();
+        assert(false, 'unreachable');
+      } catch(e) {
+        assert(e instanceof Error);
+      }
+    });
+
+    it('throws error with non-function callback.', ()=>{
+      var ice = new IceCap('<div data-ice="exampleWrap"><h1>Example</h1><div data-ice="example"></div></div>');
+      try {
+        ice.into('exampleWrap', 'this is example', {});
         assert(false, 'unreachable');
       } catch(e) {
         assert(e instanceof Error);
