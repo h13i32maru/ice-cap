@@ -1,6 +1,6 @@
 {
   "name": "ice-cap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Programmable DOM-based HTML template library.",
   "author": "h13i32maru",
   "license": "MIT",
