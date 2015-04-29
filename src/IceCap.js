@@ -1,5 +1,14 @@
 import cheerio from 'cheerio';
 
+/**
+ * @class
+ * @classdesc IceCap process HTML template with programmable.
+ * @fileexample
+ * import IceCap from 'ice-cap';
+ * let ice = new IceCap('<p data-ice="name"></p>');
+ * ice.text('name', 'Alice');
+ * console.log(ice.html); // <p data-ice="name">Alice</p>
+ */
 export default class IceCap {
   static get MODE_APPEND() { return 'append'; }
   static get MODE_WRITE() { return 'write'; }
@@ -9,6 +18,13 @@ export default class IceCap {
   static get CALLBACK_TEXT() { return 'text'; }
   static get CALLBACK_LOAD() { return 'html'; }
 
+  /**
+   * create instance with HTML template.
+   * @param {!string} html
+   * @param {Object} [options]
+   * @param {boolean} [options.autoDrop=true]
+   * @param {boolean} [options.autoClose=true]
+   */
   constructor(html, {autoClose = true, autoDrop = true} = {autoClose: true, autoDrop: true}) {
     if (!html) {
       throw new Error('html must be specified.');
@@ -38,6 +54,13 @@ export default class IceCap {
     return this._options.autoClose;
   }
 
+  /**
+   * apply value to DOM that is specified with id.
+   * @param {!string} id
+   * @param {string} value
+   * @param {string} [mode=IceCap.MODE_APPEND]
+   * @return {IceCap} self instance.
+   */
   text(id, value, mode = this.constructor.MODE_APPEND) {
     var nodes = this._nodes(id);
 

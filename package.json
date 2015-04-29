@@ -13,7 +13,7 @@
     "build": "bash ./script/build.sh",
     "build_test": "bash ./script/build_test.sh",
     "test": "bash ./script/test.sh",
-    "jsdoc": "bash ./script/build_jsdoc.sh",
+    "esdoc": "bash ./script/esdoc.sh",
     "start": "bash ./script/server.sh"
   },
   "dependencies": {
@@ -26,7 +26,8 @@
     "power-assert": "",
     "espower-loader": "",
     "istanbul": "",
-    "coveralls": ""
+    "coveralls": "",
+    "http-server": ""
   },
   "keywords": [
     "html",
@@ -36,5 +37,5 @@
     "out/src",
     "README.md"
   ],
-  "main": "out/src/index.js"
+  "main": "out/src/IceCap.js"
 }
