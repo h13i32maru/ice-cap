@@ -1,9 +1,6 @@
 #!/bin/bash
 
-./script/build.sh
-./script/build_test.sh
-
-mocha_option="--require out/test/src/espower-loader.js --require ./node_modules/babel/polyfill.js --recursive out/test/src -R spec"
+mocha_option="-t 5000 --require ./node_modules/babel/register.js --recursive ./test/src -R spec"
 
 if [ "$TRAVIS" == "1" ]
 then

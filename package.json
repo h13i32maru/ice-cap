@@ -9,22 +9,20 @@
     "url": "https://github.com/h13i32maru/ice-cap"
   },
   "scripts": {
-    "init": "bash ./script/init.sh",
     "build": "bash ./script/build.sh",
-    "build_test": "bash ./script/build_test.sh",
     "test": "bash ./script/test.sh",
+    "test-es5": "bash ./script/test-es5.sh",
     "esdoc": "bash ./script/esdoc.sh",
     "start": "bash ./script/server.sh"
   },
   "dependencies": {
-    "cheerio": ""
+    "cheerio": "",
+    "color-logger": ""
   },
   "devDependencies": {
     "babel": "",
     "mocha": "",
     "fs-extra": "",
-    "power-assert": "",
-    "espower-loader": "",
     "istanbul": "",
     "coveralls": "",
     "http-server": ""

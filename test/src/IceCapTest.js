@@ -1,5 +1,5 @@
-import assert from 'power-assert';
-import IceCap from '../../src/index.js';
+import assert from 'assert';
+import IceCap from '../../src/IceCap.js';
 
 describe('IceCap:', ()=>{
   describe('#constructor', ()=>{
