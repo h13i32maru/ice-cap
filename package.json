@@ -16,8 +16,8 @@
     "start": "bash ./script/server.sh"
   },
   "dependencies": {
-    "cheerio": "",
-    "color-logger": ""
+    "cheerio": "0.20.0",
+    "color-logger": "0.0.3"
   },
   "devDependencies": {
     "babel": "",
