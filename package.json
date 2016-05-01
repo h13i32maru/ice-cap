@@ -1,6 +1,6 @@
 {
   "name": "ice-cap",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Programmable DOM-based HTML template library.",
   "author": "h13i32maru",
   "license": "MIT",
@@ -20,12 +20,18 @@
     "color-logger": "0.0.3"
   },
   "devDependencies": {
-    "babel": "",
-    "mocha": "",
-    "fs-extra": "",
-    "istanbul": "",
-    "coveralls": "",
-    "http-server": ""
+    "fs-extra": "0.30.0",
+    "esdoc-importpath-plugin": "0.0.1",
+    "esdoc": "0.4.6",
+    "mocha": "2.4.5",
+    "istanbul": "0.4.3",
+    "coveralls": "2.11.9",
+    "babel-register": "6.7.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.7.0",
+    "babel-plugin-transform-es2015-destructuring": "6.6.5",
+    "babel-plugin-transform-es2015-parameters": "6.7.0",
+    "babel-plugin-transform-es2015-spread": "6.6.5",
+    "babel-cli": "6.6.5"
   },
   "keywords": [
     "html",
